@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Crypto: Decodable {
     
@@ -35,10 +36,10 @@ struct Data: Decodable, Identifiable {
     var discribtion: [String] {
         [
     "**Name:** \(name ?? "")",
-    "Rank: \(Int(rank ?? 0))",
-    "Price USD: \(price_usd ?? "")",
-    "Market Capitalization: \(market_cap_usd ?? "")",
-    "Volume 24h: \(Double(round(volume24 ?? 0.0)))"
+    "**Rank:** \(Int(rank ?? 0))",
+    "**Price USD:** \(price_usd ?? "")",
+    "**Market Capitalization:** \(market_cap_usd ?? "")",
+    "**Volume 24h:** \(Double(round(volume24 ?? 0.0)))"
     ]
     }
     

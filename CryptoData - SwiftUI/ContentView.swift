@@ -12,14 +12,17 @@ struct ContentView: View {
     @State var cryptoRates: [Data] = []
     
     var body: some View {
-        List {
-            ForEach(cryptoRates, id: \.id) { crypto in
-                DisclosureGroup(crypto.symbol ?? "") {
-                    Text(AttributedString(crypto.discribtion.joined(separator: "\n")))
+        NavigationView {
+            List {
+                ForEach(cryptoRates, id: \.id) { crypto in
+                    DisclosureGroup(crypto.symbol ?? "") {
+                        Text(.init(crypto.discribtion.joined(separator: "\n")))
+                    }
                 }
             }
+            .onAppear(perform: sendRequest)
+            .navigationBarTitle("First \(cryptoRates.count) Coins")
         }
-        .onAppear(perform: sendRequest)
     }
 }
 
